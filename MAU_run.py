@@ -132,6 +132,7 @@ if __name__ == '__main__':
         args.is_training = False
 
     model = Model(args)
+    print("Model size: {:.5f}M".format(sum(p.numel() for p in model.network.parameters()) / 1000000.0))
 
     if args.is_training:
         if not os.path.exists(args.save_dir):
